@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phoenix</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <nav class="fixed top-0 z-50 w-full border-b border-gray-300">
+      <div class="flex py-4 bg-white">
+        <div class="text-2xl font-semibold text-gray-500 ps-16">Phoenix</div>
+        <div class="ms-[25%] ps-32">
+          <div
+            class="flex rounded-full bg-transparent border border-gray-300 ps-4 pe-54 py-1 items-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-6 h-6 text-gray-300"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <input
+              type="text"
+              placeholder="search"
+              class="text-gray-700 focus:outline-none bg-transparent ps-3"
+            />
+          </div>
+        </div>
+        <div class="flex items-center space-x-4 ml-auto pe-16">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-8 h-8 text-yellow-500 rounded-full bg-yellow-100 hover:bg-yellow-400 hover:text-white p-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 text-gray-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11c0-3.07-1.64-5.64-4.5-6.32V4a1.5 1.5 0 00-3 0v.68C7.64 5.36 6 7.929 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 01-6 0h6z"
+            />
+          </svg>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 text-gray-600"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <circle cx="4" cy="4" r="2" />
+            <circle cx="12" cy="4" r="2" />
+            <circle cx="20" cy="4" r="2" />
+            <circle cx="4" cy="12" r="2" />
+            <circle cx="12" cy="12" r="2" />
+            <circle cx="20" cy="12" r="2" />
+            <circle cx="4" cy="20" r="2" />
+            <circle cx="12" cy="20" r="2" />
+            <circle cx="20" cy="20" r="2" />
+          </svg>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-8 h-8 text-gray-400 rounded-full bg-gray-200 p-1"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"
+            />
+          </svg>
+        </div>
+      </div>
+    </nav>
+    <section id="hero">
+      <aside
+        class="fixed left-0 pt-20 h-screen z-40 bg-white w-64 border-r border-gray-300 transition-transform translate-x-2"
+      >
+        <div
+          class="h-full px-3 pb-4  overflow-hidden hover:overflow-y-auto bg-white container"
+        >
+          <div class="flex items-center rounded-lg hover:bg-gray-200 px-2 py-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-3 h-3 text-gray-400"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path d="M6 4l8 6-8 6V4z" />
+            </svg>
+
+            <a href="" class="flex items-center text-blue-600">
+              <svg
+                class="w-6 h-6 ps-2 transition duration-75 stroke-blue-600 fill-transparent"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 22 21"
+                fill="white"
+                stroke="blue"
+              >
+                <path
+                  d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"
+                />
+                <path
+                  d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"
+                />
+              </svg>
+
+              <p class="text-sm px-2">Home</p>
+            </a>
+          </div>
+          <div class="px-2 pt-6">
+            <p class="tracking-wide text-[11px] font-bold">APPS</p>
+          </div>
+          <div>
+            <ul class="pt-3 space-y-[0.5]">
+              <li
+                class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-3 h-3 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M6 4l8 6-8 6V4z" />
+                </svg>
+                <a href="" class="flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-6 h-6 ps-2"
+                  >
+                    <circle cx="9" cy="21" r="1" />
+                    <circle cx="20" cy="21" r="1" />
+                    <path
+                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                    />
+                  </svg>
+                  <p class="text-sm px-2">E commerce</p>
+                </a>
+              </li>
+              <li
+                class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-3 h-3 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M6 4l8 6-8 6V4z" />
+                </svg>
+                <a href="" class="flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    class="w-6 h-6 ps-2 stroke-black"
+                    viewBox="0 0 24 24"
+                    fill="transparent"
+                    stroke="gray"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2
+                            19.86 19.86 0 0 1-8.63-3.07
+                            19.5 19.5 0 0 1-6-6
+                            19.86 19.86 0 0 1-3.07-8.63
+                            A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72
+                            c.2 1.38.76 2.72 1.63 3.89a2 2 0 0 1-.45 2.59L9.03 11a16 16 0 0 0 6 6l1.8-1.8
+                            a2 2 0 0 1 2.59-.45c1.17.87 2.51 1.43 3.89 1.63
+                            A2 2 0 0 1 22 16.92z"
+                    />
+                  </svg>
+
+                  <p class="text-sm px-2">CRM</p>
+                </a>
+              </li>
+              <li
+                class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-3 h-3 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M6 4l8 6-8 6V4z" />
+                </svg>
+                <a href="" class="flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-clipboard w-6 h-6 ps-2"
+                  >
+                    <path
+                      d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                    />
+                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+                  </svg>
+
+                  <p class="text-sm px-2">Project Management</p>
+                </a>
+              </li>
+              <li
+                class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-3 h-3 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M6 4l8 6-8 6V4z" />
+                </svg>
+                <a href="" class="flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    class="w-6 h-6 ps-2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9 2h6a1 1 0 011 1v2h3a2 2 0 012 2v3H3V7a2 2 0 012-2h3V3a1 1 0 011-1zm0 4V3h6v3H9zM3 10h18v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9z"
+                    />
+                  </svg>
+                  <p class="text-sm px-2">Travel Agency</p>
+                </a>
+              </li>
+              <li
+                class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-3 h-3 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M6 4l8 6-8 6V4z" />
+                </svg>
+                <a href="" class="flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-6 h-6 ps-2 text-black"
+                  >
+                    <!-- Center vertical line -->
+                    <line x1="12" y1="0" x2="12" y2="18" />
+
+                    <!-- S curve wrapped around the center line -->
+                    <path
+                      d="M16 6c0-2-2-3-4-3s-4 1-4 3 2 3 4 3 4 1 4 3-2 3-4 3-4-1-4-3"
+                    />
+                  </svg>
+                  <p class="text-sm px-2">Stock</p>
+                  <p
+                    class="text-[9px] rounded-sm px-1 bg-[#ffefca] text-[#bc3803] font-bold border border-[#cb3823]"
+                  >
+                    NEW
+                  </p>
+                </a>
+              </li>
+              <li
+                class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-3 h-3 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M6 4l8 6-8 6V4z" />
+                </svg>
+                <a href="" class="flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="64"
+                    height="64"
+                    class="w-6 h-6 ps-2 text-gray-700"
+                    viewBox="0 0 64 64"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <!-- Speech bubble outline -->
+                    <path
+                      d="M8 12h48v32a8 8 0 0 1-8 8H20l-12 8V20a8 8 0 0 1 8-8z"
+                    />
+                  </svg>
+                  <p class="text-sm px-2">Chat</p>
+                </a>
+              </li>
+              <li
+                class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-3 h-3 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M6 4l8 6-8 6V4z" />
+                </svg>
+                <a href="" class="flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    viewBox="0 0 24 24"
+                    class="w-6 h-6 text-gray-700 ps-2"
+                  >
+                    <rect x="2" y="5" width="20" height="14" rx="2" ry="2" />
+                    <path d="M2 7l10 7 10-7" />
+                  </svg>
+
+                  <p class="text-sm px-2">Email</p>
+                </a>
+              </li>
+              <li
+                class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-3 h-3 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M6 4l8 6-8 6V4z" />
+                </svg>
+                <a href="" class="flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    class="w-6 h-6 text-gray-700 ps-2"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M6 4v16l6-6 6 6V4z" />
+                  </svg>
+
+                  <p class="text-sm px-2">Events</p>
+                </a>
+              </li>
+              <li
+                class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-3 h-3 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M6 4l8 6-8 6V4z" />
+                </svg>
+                <a href="" class="flex items-center">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="w-6 h-6 ps-2"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                    <rect
+                      x="5"
+                      y="5"
+                      width="18"
+                      height="18"
+                      rx="2"
+                      ry="2"
+                      transform="translate(2 2)"
+                      opacity="0.5"
+                    />
+                    <line x1="8" y1="8" x2="16" y2="8" />
+                    <line x1="8" y1="12" x2="13" y2="12" />
+                  </svg>
+
+                  <p class="text-sm px-2">Kanban</p>
+                </a>
+              </li>
+              <li
+                class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-3 h-3 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M6 4l8 6-8 6V4z" />
+                </svg>
+                <a href="" class="flex items-center">
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="w-6 h-6 ps-2"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="2" y="4" width="20" height="4" rx="1" ry="1" />
+                    <rect x="6" y="12" width="16" height="4" rx="1" ry="1" />
+                    <rect x="2" y="20" width="10" height="4" rx="1" ry="1" />
+                  </svg>
+
+                  <p class="text-sm px-2">Gantt chart</p>
+                  <p
+                    class="text-[9px] rounded-sm px-1 bg-[#ffefca] text-[#bc3803] font-bold border border-[#cb3823]"
+                  >
+                    NEW
+                  </p>
+                </a>
+              </li>
+              <li
+                class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-3 h-3 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M6 4l8 6-8 6V4z" />
+                </svg>
+                <a href="" class="flex items-center">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="w-6 h-6 ps-2"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="5" r="3" />
+                    <circle cx="5" cy="19" r="3" />
+                    <circle cx="19" cy="19" r="3" />
+                    <line x1="6.5" y1="17.5" x2="10.5" y2="6.5" />
+                    <line x1="17.5" y1="17.5" x2="13.5" y2="6.5" />
+                  </svg>
+                  <p class="text-sm px-2">Social</p>
+                </a>
+              </li>
+              <li
+                class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-3 h-3 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M6 4l8 6-8 6V4z" />
+                </svg>
+                <a href="" class="flex items-center">
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="w-6 h-6 ps-2"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                    <circle cx="6" cy="6" r="2" />
+                    <path d="M3 18 L9 12 L15 16 L21 10" />
+                  </svg>
+                  <p class="text-sm px-2">Gallery</p>
+                </a>
+              </li>
+              <li
+                class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-3 h-3 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M6 4l8 6-8 6V4z" />
+                </svg>
+                <a href="" class="flex items-center">
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="w-6 h-6 ps-2"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"
+                    />
+                  </svg>
+
+                  <p class="text-sm px-2">File manager</p>
+                </a>
+              </li>
+              <li
+                class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-3 h-3 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M6 4l8 6-8 6V4z" />
+                </svg>
+                <a href="" class="flex items-center">
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="w-6 h-6 ps-2"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+
+                  <p class="text-sm px-2">Calendar</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="px-2 pt-6">
+            <p class="tracking-wide text-[11px] font-bold">PAGES</p>
+          </div>
+          <ul class="pt-3 space-y-[0.5]">
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 ps-5 px-2 py-1"
+            >
+              <a href="" class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-6 h-6 ps-2"
+                >
+                  <circle cx="9" cy="21" r="1" />
+                  <circle cx="20" cy="21" r="1" />
+                  <path
+                    d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                  />
+                </svg>
+                <p class="text-sm px-2">Starter</p>
+              </a>
+            </li>
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3 h-3 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M6 4l8 6-8 6V4z" />
+              </svg>
+              <a href="" class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  class="w-6 h-6 ps-2 stroke-black"
+                  viewBox="0 0 24 24"
+                  fill="transparent"
+                  stroke="gray"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2
+                            19.86 19.86 0 0 1-8.63-3.07
+                            19.5 19.5 0 0 1-6-6
+                            19.86 19.86 0 0 1-3.07-8.63
+                            A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72
+                            c.2 1.38.76 2.72 1.63 3.89a2 2 0 0 1-.45 2.59L9.03 11a16 16 0 0 0 6 6l1.8-1.8
+                            a2 2 0 0 1 2.59-.45c1.17.87 2.51 1.43 3.89 1.63
+                            A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+
+                <p class="text-sm px-2">Faq</p>
+              </a>
+            </li>
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3 h-3 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M6 4l8 6-8 6V4z" />
+              </svg>
+              <a href="" class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-clipboard w-6 h-6 ps-2"
+                >
+                  <path
+                    d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                  />
+                  <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+                </svg>
+
+                <p class="text-sm px-2">Landing</p>
+              </a>
+            </li>
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3 h-3 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M6 4l8 6-8 6V4z" />
+              </svg>
+              <a href="" class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="w-6 h-6 ps-2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 2h6a1 1 0 011 1v2h3a2 2 0 012 2v3H3V7a2 2 0 012-2h3V3a1 1 0 011-1zm0 4V3h6v3H9zM3 10h18v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9z"
+                  />
+                </svg>
+                <p class="text-sm px-2">Pricing</p>
+              </a>
+            </li>
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3 h-3 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M6 4l8 6-8 6V4z" />
+              </svg>
+              <a href="" class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-6 h-6 ps-2 text-black"
+                >
+                  <!-- Center vertical line -->
+                  <line x1="12" y1="0" x2="12" y2="18" />
+
+                  <!-- S curve wrapped around the center line -->
+                  <path
+                    d="M16 6c0-2-2-3-4-3s-4 1-4 3 2 3 4 3 4 1 4 3-2 3-4 3-4-1-4-3"
+                  />
+                </svg>
+                <p class="text-sm px-2">Notifications</p>
+              </a>
+            </li>
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3 h-3 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M6 4l8 6-8 6V4z" />
+              </svg>
+              <a href="" class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="64"
+                  height="64"
+                  class="w-6 h-6 ps-2 text-gray-700"
+                  viewBox="0 0 64 64"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <!-- Speech bubble outline -->
+                  <path
+                    d="M8 12h48v32a8 8 0 0 1-8 8H20l-12 8V20a8 8 0 0 1 8-8z"
+                  />
+                </svg>
+                <p class="text-sm px-2">Members</p>
+              </a>
+            </li>
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3 h-3 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M6 4l8 6-8 6V4z" />
+              </svg>
+              <a href="" class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  viewBox="0 0 24 24"
+                  class="w-6 h-6 text-gray-700 ps-2"
+                >
+                  <rect x="2" y="5" width="20" height="14" rx="2" ry="2" />
+                  <path d="M2 7l10 7 10-7" />
+                </svg>
+
+                <p class="text-sm px-2">Timeline</p>
+              </a>
+            </li>
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3 h-3 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M6 4l8 6-8 6V4z" />
+              </svg>
+              <a href="" class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  class="w-6 h-6 text-gray-700 ps-2"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M6 4v16l6-6 6 6V4z" />
+                </svg>
+
+                <p class="text-sm px-2">Errors</p>
+              </a>
+            </li>
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3 h-3 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M6 4l8 6-8 6V4z" />
+              </svg>
+              <a href="" class="flex items-center">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  class="w-6 h-6 ps-2"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                  <rect
+                    x="5"
+                    y="5"
+                    width="18"
+                    height="18"
+                    rx="2"
+                    ry="2"
+                    transform="translate(2 2)"
+                    opacity="0.5"
+                  />
+                  <line x1="8" y1="8" x2="16" y2="8" />
+                  <line x1="8" y1="12" x2="13" y2="12" />
+                </svg>
+
+                <p class="text-sm px-2">Authentication</p>
+              </a>
+            </li>
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3 h-3 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M6 4l8 6-8 6V4z" />
+              </svg>
+              <a href="" class="flex items-center">
+                <svg
+                  viewBox="0 0 24 24"
+                  class="w-6 h-6 ps-2"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="4" width="20" height="4" rx="1" ry="1" />
+                  <rect x="6" y="12" width="16" height="4" rx="1" ry="1" />
+                  <rect x="2" y="20" width="10" height="4" rx="1" ry="1" />
+                </svg>
+
+                <p class="text-sm px-2">Layouts</p>
+              </a>
+            </li>
+          </ul>
+           <div class="px-2 pt-6">
+            <p class="tracking-wide text-[11px] font-bold">MODULES</p>
+          </div>
+          <ul class="pt-3 space-y-[0.5]">
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 ps-5 px-2 py-1"
+            >
+              <a href="" class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-6 h-6 ps-2"
+                >
+                  <circle cx="9" cy="21" r="1" />
+                  <circle cx="20" cy="21" r="1" />
+                  <path
+                    d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                  />
+                </svg>
+                <p class="text-sm px-2">Starter</p>
+              </a>
+            </li>
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3 h-3 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M6 4l8 6-8 6V4z" />
+              </svg>
+              <a href="" class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  class="w-6 h-6 ps-2 stroke-black"
+                  viewBox="0 0 24 24"
+                  fill="transparent"
+                  stroke="gray"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2
+                            19.86 19.86 0 0 1-8.63-3.07
+                            19.5 19.5 0 0 1-6-6
+                            19.86 19.86 0 0 1-3.07-8.63
+                            A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72
+                            c.2 1.38.76 2.72 1.63 3.89a2 2 0 0 1-.45 2.59L9.03 11a16 16 0 0 0 6 6l1.8-1.8
+                            a2 2 0 0 1 2.59-.45c1.17.87 2.51 1.43 3.89 1.63
+                            A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+
+                <p class="text-sm px-2">Faq</p>
+              </a>
+            </li>
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3 h-3 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M6 4l8 6-8 6V4z" />
+              </svg>
+              <a href="" class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-clipboard w-6 h-6 ps-2"
+                >
+                  <path
+                    d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                  />
+                  <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+                </svg>
+
+                <p class="text-sm px-2">Landing</p>
+              </a>
+            </li>
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3 h-3 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M6 4l8 6-8 6V4z" />
+              </svg>
+              <a href="" class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="w-6 h-6 ps-2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 2h6a1 1 0 011 1v2h3a2 2 0 012 2v3H3V7a2 2 0 012-2h3V3a1 1 0 011-1zm0 4V3h6v3H9zM3 10h18v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9z"
+                  />
+                </svg>
+                <p class="text-sm px-2">Pricing</p>
+              </a>
+            </li>
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3 h-3 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M6 4l8 6-8 6V4z" />
+              </svg>
+              <a href="" class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-6 h-6 ps-2 text-black"
+                >
+                  <!-- Center vertical line -->
+                  <line x1="12" y1="0" x2="12" y2="18" />
+
+                  <!-- S curve wrapped around the center line -->
+                  <path
+                    d="M16 6c0-2-2-3-4-3s-4 1-4 3 2 3 4 3 4 1 4 3-2 3-4 3-4-1-4-3"
+                  />
+                </svg>
+                <p class="text-sm px-2">Notifications</p>
+              </a>
+            </li>
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3 h-3 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M6 4l8 6-8 6V4z" />
+              </svg>
+              <a href="" class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="64"
+                  height="64"
+                  class="w-6 h-6 ps-2 text-gray-700"
+                  viewBox="0 0 64 64"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <!-- Speech bubble outline -->
+                  <path
+                    d="M8 12h48v32a8 8 0 0 1-8 8H20l-12 8V20a8 8 0 0 1 8-8z"
+                  />
+                </svg>
+                <p class="text-sm px-2">Members</p>
+              </a>
+            </li>
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3 h-3 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M6 4l8 6-8 6V4z" />
+              </svg>
+              <a href="" class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  viewBox="0 0 24 24"
+                  class="w-6 h-6 text-gray-700 ps-2"
+                >
+                  <rect x="2" y="5" width="20" height="14" rx="2" ry="2" />
+                  <path d="M2 7l10 7 10-7" />
+                </svg>
+
+                <p class="text-sm px-2">Timeline</p>
+              </a>
+            </li>
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3 h-3 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M6 4l8 6-8 6V4z" />
+              </svg>
+              <a href="" class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  class="w-6 h-6 text-gray-700 ps-2"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M6 4v16l6-6 6 6V4z" />
+                </svg>
+
+                <p class="text-sm px-2">Errors</p>
+              </a>
+            </li>
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3 h-3 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M6 4l8 6-8 6V4z" />
+              </svg>
+              <a href="" class="flex items-center">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  class="w-6 h-6 ps-2"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                  <rect
+                    x="5"
+                    y="5"
+                    width="18"
+                    height="18"
+                    rx="2"
+                    ry="2"
+                    transform="translate(2 2)"
+                    opacity="0.5"
+                  />
+                  <line x1="8" y1="8" x2="16" y2="8" />
+                  <line x1="8" y1="12" x2="13" y2="12" />
+                </svg>
+
+                <p class="text-sm px-2">Authentication</p>
+              </a>
+            </li>
+            <li
+              class="flex items-center rounded-lg bg-white hover:bg-gray-200 px-2 py-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3 h-3 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M6 4l8 6-8 6V4z" />
+              </svg>
+              <a href="" class="flex items-center">
+                <svg
+                  viewBox="0 0 24 24"
+                  class="w-6 h-6 ps-2"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="4" width="20" height="4" rx="1" ry="1" />
+                  <rect x="6" y="12" width="16" height="4" rx="1" ry="1" />
+                  <rect x="2" y="20" width="10" height="4" rx="1" ry="1" />
+                </svg>
+
+                <p class="text-sm px-2">Layouts</p>
+              </a>
+            </li>
+          </ul>
+          <div class="absolute bottom-0 left-0 w-full z-50 bg-white border-t border-gray-300">
+                  <p class="text-sm py-2 ps-4">Controller</p>
+                </div>
+              </div>
+                      </div>
+        
+      </aside>
+    </section>
+
+    <section id="body" class="overflow-y-auto overflow-x-hidden">
+      <section id="grid">
+     
+       <div class="ps-[310px] pt-25 bg-[#f5f7fa] w-screen border-b border-gray-300 ">
+        <div class="flex w-full pb-8">
+           <div class="w-[50%]">
+              <div>
+                <h1 class="text-3xl font-bold">Ecommerce Dashboard</h1>
+                <p class="text-base text-gray-500 font-semibold pt-1">Here's what's going on at your business right now</p>
+              </div>
+              <div class="flex pt-8 space-x-5 pb-8">
+                 <div class="flex items-center justify-center">
+                      <svg width="397" height="397" class="w-18 h-18" viewBox="0 0 397 397" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                          <g>
+                            <path d="M112.255 1.52588e-05C106.829 10.0729 103.75 21.597 103.75 33.8402C103.75 73.3065 135.744 105.3 175.21 105.3C177.608 105.3 179.978 105.182 182.315 104.951L183.823 109.096Q188.323 121.458 182.763 133.381C179.057 141.329 173.083 146.803 164.841 149.803L75.3075 182.391C67.0661 185.39 58.9711 185.037 51.0225 181.33C43.0739 177.624 37.5999 171.65 34.6003 163.409L12.8751 103.719L2.01258 73.8748Q-2.48685 61.5127 3.07288 49.5899Q8.63259 37.667 20.9947 33.1676L110.529 0.579895C111.105 0.370224 111.68 0.176926 112.255 1.52588e-05Z" fill="#84CC81" fill-rule="evenodd" transform="translate(88.25 134.62)" />
+                            <path d="M0 71.46C0 31.9937 31.9937 0 71.46 0C110.926 0 142.92 31.9937 142.92 71.46C142.92 110.926 110.926 142.92 71.46 142.92C31.9937 142.92 0 110.926 0 71.46Z" fill="#D9FCD9" fill-rule="evenodd" transform="translate(203 89)" />
+                            <path d="M43.67 0L55.58 31.76L87.34 31.76L61.535 51.61L71.46 83.37L43.67 63.52L15.88 83.37L25.805 51.61L0 31.76L31.76 31.76L43.67 0Z" fill="#22C55E" transform="translate(234.23 119.1)" />
+                          </g>
+                        </g>
+                      </svg>
+                      <div class="ps-2">
+                        <p class="text-lg font-bold">57 new orders</p>
+                        <p class="text-sm text-gray-500">Awating processing</p>
+                      </div>
+                       
+                 </div>
+                 <div class="flex items-center justify-center">
+                       <svg width="397" height="397" class="w-18 h-18" viewBox="0 0 397 397" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g>
+                              <g transform="translate(88.25 89)">
+                                <path d="M112.255 0C106.829 10.0729 103.75 21.597 103.75 33.8402C103.75 73.3064 135.744 105.3 175.21 105.3C177.608 105.3 179.978 105.182 182.315 104.951L183.823 109.096Q188.323 121.458 182.763 133.381C179.057 141.329 173.083 146.803 164.841 149.803L75.3075 182.391C67.0661 185.39 58.9711 185.037 51.0225 181.33C43.0739 177.624 37.5999 171.65 34.6003 163.409L12.8751 103.719L2.01258 73.8748Q-2.48685 61.5127 3.07288 49.5898Q8.63259 37.667 20.9947 33.1676L110.529 0.57988C111.105 0.370201 111.68 0.176907 112.255 0Z" fill="#FFCC85" fill-rule="evenodd" transform="translate(0 45.62)" />
+                                <path d="M0 71.46C0 31.9937 31.9937 0 71.46 0C110.926 0 142.92 31.9937 142.92 71.46C142.92 110.926 110.926 142.92 71.46 142.92C31.9937 142.92 0 110.926 0 71.46Z" fill="#FFEFCA" fill-rule="evenodd" transform="translate(114.75 0)" />
+                                <g transform="translate(165.838 37.96)">
+                                  <path d="M7.24324 0C11.2441 0 14.4865 3.24237 14.4865 7.24324L14.4865 59.7568C14.4865 63.7576 11.2441 67 7.24324 67L7.24324 67C3.24237 67 0 63.7576 0 59.7568L0 7.24324C0 3.24237 3.24237 0 7.24324 0Z" fill="#E5780B" />
+                                  <path d="M7.24324 0C11.2441 0 14.4865 3.24236 14.4865 7.24324L14.4865 59.7568C14.4865 63.7576 11.2441 67 7.24324 67L7.24324 67C3.24236 67 0 63.7576 0 59.7568L0 7.24324C0 3.24236 3.24236 0 7.24324 0Z" fill="#E5780B" transform="translate(26.257 0)" />
+                                </g>
+                              </g>
+                            </g>
+                          </svg>
+                      <div class="ps-2">
+                        <p class="text-lg font-bold">5 orders</p>
+                        <p class="text-sm text-gray-500">on hold</p>
+                      </div>
+                 </div>
+                <div class="flex items-center justify-center">
+                    <svg width="397" height="397" class="w-18 h-18" viewBox="0 0 397 397" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                          <path d="M112.255 1.52588e-05C106.829 10.0729 103.75 21.597 103.75 33.8402C103.75 73.3065 135.744 105.3 175.21 105.3C177.608 105.3 179.978 105.182 182.315 104.951L183.823 109.096Q188.323 121.458 182.763 133.381C179.057 141.329 173.083 146.803 164.841 149.803L75.3075 182.391C67.0661 185.39 58.9711 185.037 51.0225 181.33C43.0739 177.624 37.5999 171.65 34.6003 163.409L12.8751 103.719L2.01258 73.8748Q-2.48685 61.5127 3.07288 49.5899Q8.63259 37.667 20.9947 33.1676L110.529 0.579895C111.105 0.370224 111.68 0.176926 112.255 1.52588e-05Z" fill="#F2816F" fill-rule="evenodd" transform="translate(88.25 134.62)" />
+                          <path d="M0 71.46C0 31.9937 31.9937 0 71.46 0C110.926 0 142.92 31.9937 142.92 71.46C142.92 110.926 110.926 142.92 71.46 142.92C31.9937 142.92 0 110.926 0 71.46Z" fill="#FFE0DB" fill-rule="evenodd" transform="translate(203 89)" />
+                          <g transform="translate(247.46 134.46)">
+                            <g fill="#FA3B1D" fill-rule="evenodd">
+                              <path d="M3.61234 3.84099L3.84659 3.60147Q3.93344 3.51266 4.02452 3.42818Q4.1156 3.34369 4.21069 3.26375Q4.30577 3.1838 4.40463 3.10857Q4.50349 3.03334 4.6059 2.96302Q4.70831 2.89269 4.81401 2.82744Q4.91972 2.76218 5.02848 2.70215Q5.13724 2.64211 5.24879 2.58744Q5.36034 2.53277 5.47443 2.4836Q5.58851 2.43442 5.70484 2.39085Q5.82118 2.34729 5.93951 2.30944Q6.05783 2.27159 6.17785 2.23954Q6.29787 2.2075 6.41932 2.18133Q6.54076 2.15516 6.66333 2.13494Q6.7859 2.11472 6.90931 2.10048Q7.03272 2.08625 7.15668 2.07803Q7.28063 2.06982 7.40484 2.06766Q7.52905 2.06549 7.65322 2.06937Q7.77739 2.07325 7.90122 2.08317Q8.02505 2.09309 8.14825 2.10902Q8.27145 2.12496 8.39373 2.14687Q8.51601 2.16878 8.63708 2.19662Q8.75815 2.22446 8.87772 2.25816Q8.99729 2.29186 9.11508 2.33133Q9.23287 2.37081 9.3486 2.41598Q9.46432 2.46114 9.57771 2.51188Q9.69111 2.56263 9.8019 2.61883Q9.91268 2.67503 10.0206 2.73656Q10.1285 2.79809 10.2333 2.8648Q10.3381 2.93151 10.4395 3.00324Q10.541 3.07497 10.6388 3.15155Q10.7366 3.22813 10.8306 3.30939Q10.9245 3.39064 11.0145 3.47637L50.261 40.9Q50.3523 40.9871 50.4393 41.0786Q50.5262 41.1702 50.6085 41.2659Q50.6908 41.3616 50.7683 41.4613Q50.8458 41.561 50.9182 41.6643Q50.9907 41.7677 51.0579 41.8746Q51.1252 41.9814 51.1871 42.0914Q51.2489 42.2015 51.3053 42.3145Q51.3617 42.4274 51.4124 42.543Q51.4631 42.6586 51.508 42.7766Q51.5529 42.8946 51.592 43.0147Q51.631 43.1347 51.664 43.2566Q51.6971 43.3784 51.7241 43.5017Q51.7511 43.6251 51.7719 43.7496Q51.7927 43.8741 51.8074 43.9995Q51.8221 44.1249 51.8305 44.2508Q51.839 44.3768 51.8412 44.503Q51.8434 44.6292 51.8393 44.7554Q51.8353 44.8816 51.825 45.0074Q51.8147 45.1332 51.7982 45.2584Q51.7817 45.3836 51.7591 45.5078Q51.7364 45.632 51.7076 45.7549Q51.6789 45.8778 51.6441 45.9991Q51.6092 46.1205 51.5685 46.24Q51.5277 46.3595 51.481 46.4768Q51.4344 46.5941 51.382 46.7089Q51.3296 46.8238 51.2716 46.9359Q51.2136 47.0481 51.1501 47.1572Q51.0867 47.2663 51.0179 47.3722Q50.9491 47.478 50.8751 47.5803Q50.8012 47.6827 50.7222 47.7812Q50.6433 47.8797 50.5596 47.9742Q50.4759 48.0688 50.3877 48.159L50.1534 48.3985Q50.0666 48.4873 49.9755 48.5718Q49.8844 48.6563 49.7893 48.7363Q49.6942 48.8162 49.5954 48.8914Q49.4965 48.9667 49.3941 49.037Q49.2917 49.1073 49.186 49.1726Q49.0803 49.2378 48.9715 49.2979Q48.8628 49.3579 48.7512 49.4126Q48.6397 49.4672 48.5256 49.5164Q48.4115 49.5656 48.2952 49.6092Q48.1788 49.6527 48.0605 49.6906Q47.9422 49.7284 47.8222 49.7605Q47.7021 49.7925 47.5807 49.8187Q47.4592 49.8448 47.3367 49.8651Q47.2141 49.8853 47.0907 49.8995Q46.9673 49.9138 46.8433 49.922Q46.7194 49.9302 46.5952 49.9324Q46.471 49.9345 46.3468 49.9306Q46.2226 49.9268 46.0988 49.9168Q45.975 49.9069 45.8518 49.891Q45.7286 49.875 45.6063 49.8531Q45.484 49.8312 45.3629 49.8034Q45.2419 49.7756 45.1223 49.7419Q45.0027 49.7082 44.8849 49.6687Q44.7671 49.6292 44.6514 49.584Q44.5357 49.5389 44.4223 49.4881Q44.3089 49.4374 44.1981 49.3812Q44.0873 49.325 43.9794 49.2634Q43.8715 49.2019 43.7667 49.1352Q43.6619 49.0685 43.5605 48.9968Q43.459 48.925 43.3612 48.8484Q43.2634 48.7719 43.1694 48.6906Q43.0755 48.6094 42.9855 48.5236L3.73904 11.1Q3.64767 11.0129 3.56073 10.9214Q3.47378 10.8298 3.39147 10.7341Q3.30916 10.6384 3.23169 10.5387Q3.15421 10.439 3.08177 10.3357Q3.00932 10.2323 2.94207 10.1254Q2.87482 10.0186 2.81294 9.90855Q2.75106 9.79851 2.6947 9.68555Q2.63834 9.57259 2.58763 9.45697Q2.53693 9.34136 2.492 9.22338Q2.44708 9.1054 2.40804 8.98534Q2.36901 8.86528 2.33596 8.74344Q2.30291 8.62159 2.27593 8.49827Q2.24895 8.37494 2.2281 8.25043Q2.20726 8.12592 2.19259 8.00053Q2.17793 7.87514 2.16948 7.74918Q2.16104 7.62321 2.15884 7.49699Q2.15663 7.37076 2.16068 7.24458Q2.16472 7.11841 2.175 6.99258Q2.18528 6.86675 2.20177 6.74159Q2.21826 6.61643 2.24092 6.49224Q2.26358 6.36804 2.29236 6.24512Q2.32113 6.1222 2.35595 6.00085Q2.39077 5.8795 2.43155 5.76003Q2.47233 5.64055 2.51897 5.52324Q2.56561 5.40592 2.618 5.29106Q2.67038 5.1762 2.72839 5.06407Q2.78639 4.95194 2.84987 4.84281Q2.91334 4.73369 2.98214 4.62784Q3.05094 4.52198 3.12489 4.41966Q3.19884 4.31735 3.27776 4.21881Q3.35668 4.12027 3.44037 4.02576Q3.52407 3.93125 3.61234 3.84099Z" />
+                              <path d="M1.68853 1.53459L1.45428 1.77411Q1.27763 1.95474 1.1197 2.15193Q0.961762 2.34912 0.824082 2.56096Q0.686402 2.77279 0.570326 2.99719Q0.45425 3.22159 0.360913 3.45636Q0.267577 3.69113 0.197893 3.93397Q0.128208 4.17681 0.0828591 4.42535Q0.0375097 4.67389 0.0169388 4.9257Q-0.00363209 5.1775 0.000776768 5.43011Q0.00518566 5.68271 0.0345312 5.93365Q0.0638767 6.18458 0.117872 6.43139Q0.171867 6.67819 0.249983 6.91846Q0.328099 7.15872 0.429572 7.39009Q0.531044 7.62146 0.654881 7.84167Q0.778717 8.06189 0.923705 8.26879Q1.06869 8.47569 1.23341 8.66725Q1.39813 8.85881 1.58098 9.03316L40.8275 46.4568Q40.9174 46.5425 41.0114 46.6237Q41.1053 46.705 41.2032 46.7816Q41.301 46.8582 41.4024 46.9299Q41.5038 47.0016 41.6086 47.0683Q41.7134 47.135 41.8213 47.1966Q41.9293 47.2581 42.04 47.3143Q42.1508 47.3705 42.2642 47.4212Q42.3776 47.472 42.4933 47.5172Q42.6091 47.5623 42.7269 47.6018Q42.8447 47.6413 42.9642 47.675Q43.0838 47.7087 43.2049 47.7365Q43.3259 47.7643 43.4482 47.7863Q43.5705 47.8082 43.6937 47.8241Q43.8169 47.84 43.9407 47.85Q44.0646 47.8599 44.1887 47.8638Q44.3129 47.8676 44.4371 47.8655Q44.5613 47.8633 44.6853 47.8551Q44.8092 47.8469 44.9326 47.8326Q45.056 47.8184 45.1786 47.7982Q45.3012 47.778 45.4226 47.7518Q45.5441 47.7256 45.6641 47.6936Q45.7841 47.6615 45.9024 47.6237Q46.0208 47.5858 46.1371 47.5423Q46.2534 47.4987 46.3675 47.4495Q46.4816 47.4004 46.5932 47.3457Q46.7047 47.291 46.8135 47.231Q46.9222 47.1709 47.0279 47.1057Q47.1336 47.0404 47.236 46.9701Q47.3384 46.8998 47.4373 46.8246Q47.5362 46.7493 47.6313 46.6694Q47.7263 46.5894 47.8174 46.5049Q47.9085 46.4205 47.9954 46.3317L48.2296 46.0921Q48.4062 45.9115 48.5642 45.7143Q48.7221 45.5171 48.8598 45.3053Q48.9975 45.0935 49.1136 44.8691Q49.2296 44.6447 49.323 44.4099Q49.4163 44.1751 49.486 43.9323Q49.5557 43.6894 49.601 43.4409Q49.6464 43.1924 49.6669 42.9405Q49.6875 42.6887 49.6831 42.4361Q49.6787 42.1835 49.6494 41.9326Q49.62 41.6817 49.566 41.4349Q49.512 41.1881 49.4339 40.9478Q49.3558 40.7075 49.2543 40.4762Q49.1528 40.2448 49.029 40.0246Q48.9052 39.8044 48.7602 39.5975Q48.6152 39.3906 48.4505 39.199Q48.2857 39.0074 48.1029 38.8331L8.85639 1.40949Q8.76649 1.32376 8.67252 1.24251Q8.57854 1.16125 8.48073 1.08467Q8.38291 1.00809 8.28149 0.936359Q8.18006 0.864629 8.07526 0.797921Q7.97046 0.731212 7.86254 0.669684Q7.75462 0.608155 7.64383 0.551952Q7.53305 0.495749 7.41965 0.445006Q7.30626 0.394262 7.19054 0.349097Q7.07481 0.303933 6.95702 0.264455Q6.83923 0.224977 6.71966 0.191278Q6.60009 0.15758 6.47902 0.129742Q6.35795 0.101903 6.23567 0.0799907Q6.11339 0.058078 5.99019 0.0421432Q5.86699 0.0262083 5.74316 0.016289Q5.61932 0.00636961 5.49516 0.00248929Q5.37099 -0.00139103 5.24678 0.000776887Q5.12257 0.0029448 4.99861 0.0111558Q4.87466 0.0193668 4.75125 0.0336014Q4.62784 0.0478361 4.50527 0.0680606Q4.3827 0.0882851 4.26126 0.114452Q4.13981 0.140618 4.01979 0.172664Q3.89977 0.204711 3.78145 0.242561Q3.66312 0.280411 3.54678 0.323976Q3.43045 0.36754 3.31636 0.416716Q3.20228 0.465891 3.09073 0.520561Q2.97918 0.575231 2.87042 0.635266Q2.76166 0.695301 2.65595 0.760558Q2.55025 0.825815 2.44784 0.89614Q2.34543 0.966465 2.24657 1.04169Q2.14771 1.11692 2.05263 1.19687Q1.95754 1.27681 1.86646 1.3613Q1.77538 1.44578 1.68853 1.53459ZM1.00062 5.41266Q0.970711 3.69879 2.16921 2.47331L2.40346 2.23379Q5.23522 -0.661732 8.16629 2.1332L47.4128 39.5568Q48.6533 40.7397 48.6833 42.4536Q48.7132 44.1674 47.5147 45.3929L47.2804 45.6325Q44.4487 48.528 41.5176 45.733L2.27108 8.30944Q1.03054 7.12652 1.00062 5.41266Z" fill="#808080" fill-rule="evenodd" />
+                            </g>
+                            <g fill="#FA3B1D" fill-rule="evenodd" transform="translate(0.212 0.202)">
+                              <path d="M49.8239 3.69799L49.9638 3.841Q50.0521 3.93126 50.1357 4.02577Q50.2194 4.12028 50.2984 4.21882Q50.3773 4.31735 50.4512 4.41967Q50.5252 4.52199 50.594 4.62784Q50.6628 4.73369 50.7263 4.84282Q50.7897 4.95194 50.8477 5.06408Q50.9057 5.17621 50.9581 5.29107Q51.0105 5.40593 51.0572 5.52325Q51.1038 5.64056 51.1446 5.76004Q51.1854 5.87951 51.2202 6.00086Q51.255 6.12221 51.2838 6.24513Q51.3126 6.36805 51.3352 6.49224Q51.3579 6.61644 51.3744 6.7416Q51.3909 6.86676 51.4011 6.99259Q51.4114 7.11841 51.4155 7.24459Q51.4195 7.37077 51.4173 7.497Q51.4151 7.62322 51.4067 7.74918Q51.3982 7.87514 51.3835 8.00054Q51.3689 8.12592 51.348 8.25043Q51.3272 8.37495 51.3002 8.49827Q51.2732 8.6216 51.2402 8.74344Q51.2071 8.86529 51.1681 8.98534Q51.1291 9.1054 51.0841 9.22338Q51.0392 9.34136 50.9885 9.45698Q50.9378 9.57259 50.8814 9.68556Q50.8251 9.79852 50.7632 9.90856Q50.7013 10.0186 50.6341 10.1254Q50.5668 10.2323 50.4944 10.3357Q50.4219 10.4391 50.3444 10.5387Q50.267 10.6384 50.1847 10.7341Q50.1023 10.8299 50.0154 10.9214Q49.9285 11.0129 49.8371 11.1L11.1122 48.0263Q11.0198 48.1143 10.9234 48.1977Q10.8269 48.2812 10.7264 48.3598Q10.626 48.4384 10.5219 48.5121Q10.4177 48.5858 10.3101 48.6543Q10.2025 48.7227 10.0917 48.7859Q9.98087 48.8491 9.86711 48.9068Q9.75335 48.9645 9.63692 49.0166Q9.52049 49.0687 9.40166 49.1151Q9.28284 49.1615 9.16189 49.202Q9.04095 49.2425 8.91817 49.2771Q8.7954 49.3117 8.67108 49.3403Q8.54677 49.3689 8.42121 49.3914Q8.29565 49.4139 8.16915 49.4303Q8.04265 49.4466 7.9155 49.4568Q7.78835 49.467 7.66085 49.471Q7.53336 49.475 7.40582 49.4728Q7.27828 49.4705 7.151 49.4621Q7.02372 49.4537 6.89701 49.439Q6.77029 49.4244 6.64443 49.4037Q6.51858 49.3829 6.39388 49.356Q6.26919 49.3292 6.14595 49.2963Q6.02271 49.2634 5.90121 49.2245Q5.77972 49.1856 5.66026 49.1409Q5.54081 49.0962 5.42367 49.0457Q5.30653 48.9952 5.19199 48.939Q5.07745 48.8829 4.96577 48.8213Q4.8541 48.7596 4.74556 48.6926Q4.63702 48.6256 4.53187 48.5534Q4.42672 48.4812 4.32521 48.4039Q4.22369 48.3267 4.12606 48.2446Q4.02843 48.1625 3.93491 48.0758Q3.84139 47.989 3.7522 47.8978L3.61234 47.7548Q3.52407 47.6646 3.44038 47.5701Q3.35668 47.4755 3.27776 47.377Q3.19884 47.2785 3.12489 47.1762Q3.05094 47.0738 2.98215 46.968Q2.91335 46.8621 2.84987 46.753Q2.78639 46.6439 2.72839 46.5318Q2.67039 46.4196 2.618 46.3048Q2.56562 46.1899 2.51898 46.0726Q2.47234 45.9553 2.43156 45.8358Q2.39078 45.7163 2.35596 45.595Q2.32113 45.4736 2.29236 45.3507Q2.26358 45.2278 2.24092 45.1036Q2.21826 44.9794 2.20177 44.8542Q2.18528 44.7291 2.175 44.6032Q2.16472 44.4774 2.16068 44.3512Q2.15664 44.2251 2.15884 44.0988Q2.16104 43.9726 2.16949 43.8466Q2.17793 43.7207 2.19259 43.5953Q2.20726 43.4699 2.22811 43.3454Q2.24895 43.2209 2.27593 43.0976Q2.30291 42.9742 2.33596 42.8524Q2.36901 42.7305 2.40804 42.6105Q2.44708 42.4904 2.492 42.3724Q2.53693 42.2545 2.58763 42.1389Q2.63834 42.0232 2.6947 41.9103Q2.75106 41.7973 2.81294 41.6873Q2.87482 41.5772 2.94207 41.4704Q3.00932 41.3635 3.08177 41.2602Q3.15422 41.1568 3.23169 41.0571Q3.30917 40.9574 3.39148 40.8617Q3.47379 40.766 3.56073 40.6744Q3.64767 40.5829 3.73904 40.4958L42.464 3.56953Q42.5563 3.48151 42.6528 3.39808Q42.7493 3.31465 42.8497 3.23601Q42.9501 3.15738 43.0543 3.08372Q43.1584 3.01007 43.266 2.94158Q43.3736 2.87308 43.4844 2.8099Q43.5953 2.74672 43.709 2.68902Q43.8228 2.63131 43.9392 2.5792Q44.0556 2.5271 44.1745 2.48072Q44.2933 2.43435 44.4142 2.39381Q44.5352 2.35328 44.658 2.31868Q44.7807 2.28407 44.9051 2.25549Q45.0294 2.22691 45.1549 2.20441Q45.2805 2.18191 45.407 2.16554Q45.5335 2.14918 45.6606 2.139Q45.7878 2.12881 45.9153 2.12483Q46.0428 2.12084 46.1703 2.12307Q46.2979 2.12529 46.4251 2.13373Q46.5524 2.14216 46.6791 2.15677Q46.8058 2.17139 46.9317 2.19216Q47.0576 2.21292 47.1823 2.23979Q47.307 2.26666 47.4302 2.29956Q47.5534 2.33247 47.6749 2.37133Q47.7964 2.4102 47.9159 2.45493Q48.0353 2.49966 48.1525 2.55015Q48.2696 2.60065 48.3841 2.65678Q48.4987 2.71292 48.6104 2.77456Q48.722 2.83621 48.8306 2.90321Q48.9391 2.97022 49.0443 3.04243Q49.1494 3.11464 49.2509 3.19188Q49.3524 3.26912 49.4501 3.35121Q49.5477 3.4333 49.6412 3.52005Q49.7347 3.6068 49.8239 3.69799L49.8239 3.69799Z" />
+                              <path d="M47.8057 1.71873L47.6659 1.57572Q47.5767 1.48453 47.4832 1.39778Q47.3896 1.31103 47.292 1.22894Q47.1944 1.14685 47.0929 1.06961Q46.9914 0.992366 46.8862 0.920156Q46.7811 0.847947 46.6725 0.780941Q46.564 0.713935 46.4523 0.652291Q46.3406 0.590647 46.2261 0.534512Q46.1115 0.478377 45.9944 0.427884Q45.8773 0.377391 45.7578 0.332659Q45.6384 0.287926 45.5169 0.249062Q45.3954 0.210197 45.2721 0.177292Q45.1489 0.144387 45.0242 0.117519Q44.8995 0.0906512 44.7736 0.0698847Q44.6478 0.0491181 44.5211 0.034502Q44.3943 0.0198859 44.2671 0.0114548Q44.1398 0.00302377 44.0123 0.000797749Q43.8847 -0.00142827 43.7572 0.00255604Q43.6297 0.00654034 43.5026 0.0167255Q43.3754 0.0269107 43.2489 0.0432726Q43.1224 0.0596345 42.9969 0.0821344Q42.8713 0.104634 42.747 0.133219Q42.6227 0.161803 42.4999 0.196405Q42.3771 0.231006 42.2562 0.271542Q42.1352 0.312078 42.0164 0.358453Q41.8976 0.404828 41.7811 0.456932Q41.6647 0.509035 41.551 0.566744Q41.4372 0.624453 41.3264 0.687631Q41.2156 0.750808 41.108 0.819305Q41.0004 0.887801 40.8962 0.961453Q40.7921 1.03511 40.6916 1.11374Q40.5912 1.19237 40.4947 1.2758Q40.3982 1.35923 40.3059 1.44726L1.58098 38.3735Q1.39813 38.5479 1.23341 38.7394Q1.06869 38.931 0.923705 39.1379Q0.778717 39.3448 0.65488 39.565Q0.531044 39.7852 0.429571 40.0166Q0.328099 40.2479 0.249983 40.4882Q0.171867 40.7285 0.117872 40.9753Q0.0638767 41.2221 0.0345311 41.473Q0.00518563 41.7239 0.000776768 41.9766Q-0.00363209 42.2292 0.0169389 42.481Q0.0375098 42.7328 0.0828592 42.9813Q0.128209 43.2299 0.197893 43.4727Q0.267577 43.7155 0.360914 43.9503Q0.454251 44.1851 0.570327 44.4095Q0.686403 44.6339 0.824083 44.8457Q0.961763 45.0575 1.1197 45.2547Q1.27763 45.4519 1.45428 45.6326L1.59414 45.7756Q1.68333 45.8668 1.77685 45.9535Q1.87037 46.0402 1.968 46.1223Q2.06563 46.2044 2.16714 46.2817Q2.26865 46.3589 2.37381 46.4311Q2.47896 46.5033 2.5875 46.5703Q2.69604 46.6373 2.80771 46.699Q2.91938 46.7606 3.03393 46.8168Q3.14847 46.8729 3.26561 46.9234Q3.38274 46.9739 3.5022 47.0186Q3.62166 47.0634 3.74315 47.1022Q3.86464 47.1411 3.98788 47.174Q4.11112 47.2069 4.23582 47.2338Q4.36052 47.2606 4.48637 47.2814Q4.61223 47.3022 4.73894 47.3168Q4.86566 47.3314 4.99294 47.3398Q5.12022 47.3483 5.24776 47.3505Q5.37529 47.3527 5.50279 47.3487Q5.63028 47.3447 5.75743 47.3346Q5.88458 47.3244 6.01109 47.308Q6.13759 47.2916 6.26315 47.2691Q6.38871 47.2466 6.51302 47.2181Q6.63733 47.1895 6.76011 47.1549Q6.88288 47.1203 7.00383 47.0797Q7.12477 47.0392 7.2436 46.9928Q7.36243 46.9464 7.47886 46.8943Q7.59529 46.8422 7.70905 46.7845Q7.82281 46.7268 7.93362 46.6636Q8.04443 46.6005 8.15204 46.532Q8.25964 46.4635 8.36379 46.3898Q8.46793 46.3162 8.56837 46.2375Q8.66881 46.1589 8.7653 46.0755Q8.86179 45.992 8.9541 45.904L47.679 8.97777Q47.8619 8.80342 48.0266 8.61186Q48.1913 8.4203 48.3363 8.2134Q48.4813 8.0065 48.6051 7.78629Q48.729 7.56608 48.8304 7.33471Q48.9319 7.10334 49.01 6.86307Q49.0881 6.62281 49.1421 6.376Q49.1961 6.1292 49.2255 5.87826Q49.2548 5.62733 49.2592 5.37472Q49.2636 5.12212 49.2431 4.87032Q49.2225 4.61851 49.1772 4.36997Q49.1318 4.12143 49.0621 3.87859Q48.9924 3.63574 48.8991 3.40097Q48.8058 3.1662 48.6897 2.9418Q48.5736 2.71741 48.4359 2.50557Q48.2982 2.29374 48.1403 2.09655Q47.9824 1.89935 47.8057 1.71873ZM40.996 2.17098Q44.0248 -0.717127 46.9509 2.27491L47.0908 2.41792Q48.2893 3.64342 48.2594 5.35727Q48.2295 7.07113 46.9889 8.25406L8.264 45.1803Q5.23522 48.0684 2.30908 45.0764L2.16921 44.9334Q0.970712 43.7079 1.00062 41.994Q1.03054 40.2801 2.27108 39.0972L40.996 2.17098Z" fill="#808080" fill-rule="evenodd" />
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                   <div class="ps-2">
+                    <p class="text-lg font-bold">15 products</p>
+                    <p class="text-sm text-gray-500">out of stocks</p>
+                   </div>
+                </div>
+              </div>
+              <div class="pt-8 w-[700px] border-t border-gray-300">
+                <div class="">
+                  <p class="text-2xl font-bold tracking-wide">Total sells</p>
+                  <div class="flex items-center justify-center">
+                     <p class="text-base text-gray-500 font-semibold">Payment received across all channels</p>
+                     <div class="flex items-center justify-center bg-white rounded-sm border border-gray-300 active:border-blue-400  space-x-32 ml-auto py-1">
+                           <p class="ps-4">Mar 1 -31, 2022</p>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 me-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                              </svg>
+
+                          
+                   
+                      </div>
+                
+                  </div>
+                  
+                </div>
+                <div class="pt-16 w-full">
+                <img src="./assets/linechart1.png" alt="" class="m-0 p-0">
+              </div>
+                
+              </div>
+                 
+            </div>
+
+
+            <div class="w-[50%] ml-auto pe-16">
+             <div class="grid grid-cols-2 w-full gap-x-4 gap-y-6 ">
+              <div class="rounded-lg bg-white border border-gray-200  h-80">
+                <div class="flex pt-4">
+                  <div class="ps-6 pb-8">
+                    <div class="flex items-center justify-center">
+                       <p class="text-base font-bold pe-2">Total orders</p>
+                       <p
+                    class="text-[12px] rounded-full px-4 bg-[#ffefca] text-[#bc3803] font-bold border border-[#ffcf8a]"
+                  >
+                    -6.8%
+                  </p>
+                    </div>
+                    <p class="text-sm text-gray-500 font-semibold pt-1">Last 7 days</p>
+                  </div>
+                  <div class="ml-auto pe-4">
+                    <p class="text-xl font-semibold">16,247</p>
+                  </div>
+                </div>
+                <div class="flex justify-center items-center">
+                  <img src="./assets/linechart2.png" alt="" class="w-1/2">
+                </div>
+                    <div class=" flex pt-8 ps-6">
+                       <svg width="88" height="35" class="w-6  h-6" viewBox="0 0 88 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="88" height="35" fill="#3874FF" fill-rule="evenodd" />
+                      </svg>
+                      <p class="ps-2 text-sm text-gray-800">Completed</p>
+                      <p class="ml-auto pe-4 text-sm text-gray-800">52%</p>
+
+                    </div>
+                    <div class=" flex ps-6">
+                      <svg width="88" height="35" class="w-6 h-6" viewBox="0 0 88 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <g>
+                            <rect width="88" height="35" fill="#E5EDFF" fill-rule="evenodd" />
+                          </g>
+                        </svg>
+                      <p class="ps-2 text-sm text-gray-800">Pending payment</p>
+                      <p class="ml-auto pe-4 text-sm text-gray-800">48%</p>
+
+                    </div>
+
+              </div>
+
+              <div class="rounded-lg bg-white border border-gray-200  h-80">
+                <div class="flex pt-4">
+                  <div class="ps-6 pb-8">
+                    <div class="flex items-center justify-center">
+                       <p class="text-base font-bold pe-2">New customers</p>
+                       <p
+                    class="text-[12px] rounded-full px-4 bg-[#ffefca] text-[#bc3803] font-bold border border-[#ffcf8a]"
+                  >
+                    +26.5%
+                  </p>
+                    </div>
+                    <p class="text-sm text-gray-500 font-semibold pt-1">Last 7 days</p>
+                  </div>
+                  <div class="ml-auto pe-4">
+                    <p class="text-xl font-semibold">356</p>
+                  </div>
+                </div>
+                 <div class="flex justify-center items-center">
+                  <img src="./assets/linechart3.png" alt="" class="w-full">
+                </div>
+                <hr class="border-t border-gray-300 w-78 mx-auto">
+                     <div class="flex pt-1">
+                   <div class="ps-6">
+                     <p class="text-sm text-gray-700">01 May</p>
+                   </div>
+                    <div class="ml-auto pe-6">
+                      <p class="text-sm text-gray-700">07 May</p>
+                    </div>
+                  </div>
+                
+
+              </div>
+
+
+              <div class="rounded-lg bg-white border border-gray-200  h-80">
+                  <div class="ps-6 pb-8 pt-4">
+                       <p class="text-base font-bold pe-2">Top coupons</p>
+                    <p class="text-sm text-gray-500 font-semibold pt-1">Last 7 days</p>
+                  </div>
+                  <div class="flex justify-center items-center">
+                  <img src="./assets/linechart4.png" alt="" class="w-1/2">
+                </div>
+                   <div class=" flex pt-4 ps-6">
+                       <svg width="88" height="35" class="w-6  h-6" viewBox="0 0 88 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="88" height="35" fill="#3874FF" fill-rule="evenodd" />
+                      </svg>
+                      <p class="ps-2 text-sm text-gray-800">Completed</p>
+                      <p class="ml-auto pe-4 text-sm text-gray-800">52%</p>
+
+                    </div>
+                    <div class=" flex ps-6">
+                      <svg width="88" height="35" class="w-6 h-6" viewBox="0 0 88 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <g>
+                            <rect width="88" height="35" fill="#E5EDFF" fill-rule="evenodd" />
+                          </g>
+                        </svg>
+                      <p class="ps-2 text-sm text-gray-800">Pending payment</p>
+                      <p class="ml-auto pe-4 text-sm text-gray-800">48%</p>
+
+                    </div>
+                    <div class=" flex ps-6">
+                       <svg width="88" height="35" class="w-6  h-6" viewBox="0 0 88 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="88" height="35" fill="#3874FF" fill-rule="evenodd" />
+                      </svg>
+                      <p class="ps-2 text-sm text-gray-800">Completed</p>
+                      <p class="ml-auto pe-4 text-sm text-gray-800">52%</p>
+
+                    </div>
+              </div>
+
+
+
+              <div class="rounded-lg bg-white border border-gray-200  h-80">
+                  <div class="ps-6 pb-16 pt-4">
+                       <p class="text-base font-bold pe-2">Paying vs non paying</p>
+                    <p class="text-sm text-gray-500 font-semibold pt-1">Last 7 days</p>
+                  </div>
+                  <div class="flex justify-center items-center">
+                  <img src="./assets/linechart5.png" alt="" class="w-1/2">
+                </div>
+                  <div class=" flex pt-8 ps-6">
+                       <svg width="88" height="35" class="w-6  h-6" viewBox="0 0 88 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="88" height="35" fill="#3874FF" fill-rule="evenodd" />
+                      </svg>
+                      <p class="ps-2 text-sm text-gray-800">Completed</p>
+                      <p class="ml-auto pe-4 text-sm text-gray-800">52%</p>
+
+                    </div>
+                    <div class=" flex ps-6">
+                      <svg width="88" height="35" class="w-6 h-6" viewBox="0 0 88 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <g>
+                            <rect width="88" height="35" fill="#E5EDFF" fill-rule="evenodd" />
+                          </g>
+                        </svg>
+                      <p class="ps-2 text-sm text-gray-800">Pending payment</p>
+                      <p class="ml-auto pe-4 text-sm text-gray-800">48%</p>
+
+                    </div>
+              </div>
+              </div>
+        </div>
+       </div>
+       </div>
+    </section>
+
+    <section id="Review">
+      <div class="ps-[310px] pt-16 bg-white w-screen">
+        <div class="pb-6">
+          <p class="text-2xl font-bold">Latest reviews</p>
+          <div class="flex">
+             <div class="">
+              <p class="text-md text-gray-500 font-semibold pt-1">Payment received across all channels</p>
+            </div>
+            <div class="flex ml-auto pe-16 space-x-2">
+              <div
+            class="flex items-center rounded-lg bg-transparent border border-gray-300 active:border-blue-600 pe-32 ps-3 py-1"
+          >
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    class="h-4 w-4 text-gray-300" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor" 
+                    stroke-width="2">
+                  <path stroke-linecap="round" 
+                        stroke-linejoin="round" 
+                        d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 3a7.5 7.5 0 006.15 13.65z" />
+                </svg>
+            <input
+              type="text"
+              placeholder="search..."
+              class="text-gray-700 focus:outline-none bg-transparent ps-3"
+            />
+          </div>
+            <div class="rounded-lg bg-white border border-gray-300 hover:bg-gray-100">
+              <p class="px-2 py-1 text-sm font-semibold text-gray-700">All products</p>
+            </div>
+            <div class="rounded-lg bg-white border border-gray-300 hover:bg-gray-100 px-4 ">
+              <p class="">...</p>
+            </div>
+            </div>
+          </div>
+        </div>
+              <div class="">
+                   <hr class="border-t border-gray-300 w-[96%]">
+                  <div class="flex items-center pt-3 pb-3">
+                   <div>
+                    <label class="inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="peer hidden" />
+                        <div class="w-5 h-5 rounded-md border border-gray-300 flex items-center justify-center transition
+                                    peer-checked:bg-blue-500 peer-checked:border-blue-500
+                                    peer-checked:border-2 peer-checked:border-blue-500">
+                          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                      </label>
+                   </div>
+                   <div class="flex items-center ps-19">
+                    <p class="text-sm font-semibold">PRODUCT</p>
+                    <div class="flex flex-col ps-1 h-4 w-6">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-3 h-3 text-gray-600 -mb-[1px]"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M4 14l6-8 6 8H4z" />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-3 h-3 text-gray-600"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M4 6l6 8 6-8H4z" />
+                        </svg>
+                      </div>
+
+                   </div>
+                   <div class="flex items-center ps-67">
+                      <p class="text-sm font-semibold">CUSTOMER</p>
+                      <div class="flex flex-col ps-1 h-4 w-6">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-3 h-3 text-gray-600 -mb-[1px]"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M4 14l6-8 6 8H4z" />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-3 h-3 text-gray-600"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M4 6l6 8 6-8H4z" />
+                        </svg>
+                      </div>
+                   </div>
+                   <div class="flex items-center ps-32">
+                    <p class="text-sm font-semibold">RATING</p>
+                    <div class="flex flex-col ps-1 h-4 w-6">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-3 h-3 text-gray-600 -mb-[1px]"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M4 14l6-8 6 8H4z" />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-3 h-3 text-gray-600"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M4 6l6 8 6-8H4z" />
+                        </svg>
+                      </div>
+                   </div>
+                   <div class="flex items-center ps-16">
+                    <p class="text-sm font-semibold">REVIEW</p>
+                    <div class="flex flex-col ps-1 h-4 w-6">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-3 h-3 text-gray-600 -mb-[1px]"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M4 14l6-8 6 8H4z" />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-3 h-3 text-gray-600"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M4 6l6 8 6-8H4z" />
+                        </svg>
+                      </div>
+                   </div>
+                   <div class="flex items-center ps-[400px]">
+                    <p class="text-sm font-semibold">STATUS</p>
+                    <div class="flex flex-col ps-1 h-4 w-6">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-3 h-3 text-gray-600 -mb-[1px]"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M4 14l6-8 6 8H4z" />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-3 h-3 text-gray-600"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M4 6l6 8 6-8H4z" />
+                        </svg>
+                      </div>
+                   </div>
+                   <div class="flex items-center ps-16">
+                    <p class="text-sm font-semibold">TIME</p>
+                    <div class="flex flex-col ps-1 h-4 w-6">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-3 h-3 text-gray-600 -mb-[1px]"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M4 14l6-8 6 8H4z" />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-3 h-3 text-gray-600"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M4 6l6 8 6-8H4z" />
+                        </svg>
+                      </div>
+                   </div>
+
+
+
+              </div>
+              <hr class="border-t border-gray-300 w-[96%]">
+              </div>
+              <div class="flex items-center pt-3">
+                <div class="pe-6">
+                  <label class="inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="peer hidden" />
+                        <div class="w-5 h-5 rounded-md border border-gray-300 flex items-center justify-center transition
+                                    peer-checked:bg-blue-500 peer-checked:border-blue-500
+                                    peer-checked:border-2 peer-checked:border-blue-500">
+                          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                      </label>
+                </div>
+                <div class="flex items-center">
+                      <div class="rounded-md bg-white border border-gray-300 px-1 py-1 ">
+                    <img src="./assets/watch1.png" alt="" class="w-11 h-11">
+                </div>
+              <p class="text-sm w-70 truncate overflow-hidden whitespace-nowrap hover:underline ps-3"> <a href="" class="text-blue-600">Fitbit Sense Advanced Smartwatch with Tools for the</a></p>
+                </div>
+                <div class="flex items-center ps-18">
+                  <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="w-8 h-8 text-gray-400 rounded-full bg-gray-200 p-1"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"
+                        />
+                      </svg>
+                      <p class="text-sm hover:underline text-black font-semibold ps-3">Richard Dawkins</p>
+
+                </div>
+                <div class="flex items-center ps-19">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        class="w-5 h-5 text-[#e5780b]"
+                      >
+                        <path d="M12 2.25c.3 0 .584.176.707.45l2.44 5.1 5.632.818a.75.75 0 01.416 1.28l-4.074 3.97.962 5.612a.75.75 0 01-1.088.791L12 17.347l-5.005 2.63a.75.75 0 01-1.088-.79l.962-5.613-4.074-3.97a.75.75 0 01.416-1.281l5.632-.818 2.44-5.1A.75.75 0 0112 2.25z"/>
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        class="w-5 h-5 text-[#e5780b]"
+                      >
+                        <path d="M12 2.25c.3 0 .584.176.707.45l2.44 5.1 5.632.818a.75.75 0 01.416 1.28l-4.074 3.97.962 5.612a.75.75 0 01-1.088.791L12 17.347l-5.005 2.63a.75.75 0 01-1.088-.79l.962-5.613-4.074-3.97a.75.75 0 01.416-1.281l5.632-.818 2.44-5.1A.75.75 0 0112 2.25z"/>
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        class="w-5 h-5 text-[#e5780b]"
+                      >
+                        <path d="M12 2.25c.3 0 .584.176.707.45l2.44 5.1 5.632.818a.75.75 0 01.416 1.28l-4.074 3.97.962 5.612a.75.75 0 01-1.088.791L12 17.347l-5.005 2.63a.75.75 0 01-1.088-.79l.962-5.613-4.074-3.97a.75.75 0 01.416-1.281l5.632-.818 2.44-5.1A.75.75 0 0112 2.25z"/>
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        class="w-5 h-5 text-[#e5780b]"
+                      >
+                        <path d="M12 2.25c.3 0 .584.176.707.45l2.44 5.1 5.632.818a.75.75 0 01.416 1.28l-4.074 3.97.962 5.612a.75.75 0 01-1.088.791L12 17.347l-5.005 2.63a.75.75 0 01-1.088-.79l.962-5.613-4.074-3.97a.75.75 0 01.416-1.281l5.632-.818 2.44-5.1A.75.75 0 0112 2.25z"/>
+                      </svg>
+
+                </div>
+                <div class="ps-14">
+                  <p class="text-sm w-110">
+                    This Fitbit is fantastic! I was trying to be in better shape and needed some motivation, so I decided to treat myself to a new Fitbit.
+                  </p>
+                </div>
+                <div class="ps-6">
+                  <div class="flex items-center rounded-sm border border-[#90d67f] bg-[#d9fbd0] px-3 py-[0.5]">
+                      <p class="text-[11px] text-[#3a6c09] font-bold">APPROVED</p>
+                      <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-4 h-4 px-1text-[#3a6c09]"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+
+                  </div>
+                </div>
+                <div class="">
+                  <div class="relative group inline-flex items-center">
+                       <p class="text-[14px] font-semibold group-hover:hidden">Just now</p>
+
+                       <div class="hidden group-hover:flex space-x-3">
+                          <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-9 h-9 px-1 text-black rounded-sm bg-gray-100 border border-gray-300 hover:bg-gray-200"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        class="w-9 h-9 rounded-sm px-1 bg-gray-100 border border-gray-300 hover:bg-gray-200"
+                      >
+                        <path d="M9 3a1 1 0 00-1 1v1H5a1 1 0 100 2h1v12a2 2 0 002 2h8a2 2 0 002-2V7h1a1 1 0 100-2h-3V4a1 1 0 00-1-1H9zm1 4a1 1 0 012 0v10a1 1 0 11-2 0V7zm4 0a1 1 0 012 0v10a1 1 0 11-2 0V7z" />
+                      </svg>
+
+                       </div>
+                       <div class="ps-6">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-9 h-9  border-none group-hover:border-gray-300   rounded-sm px-3"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zm6 0a2 2 0 11-4 0 2 2 0 014 0zm6 0a2 2 0 11-4 0 2 2 0 014 0z" />
+                          </svg>
+                       </div>
+                         
+
+                    
+
+                </div>
+          
+              </div>
+              
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+    </section>
+    </section>
+  
+  </body>
+</html>
+
+
